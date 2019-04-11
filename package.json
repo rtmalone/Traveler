@@ -1,6 +1,12 @@
 {
-  "name": "Traveler",
-  "version": "0.0.1",
+  "name": "traveler",
+  "author": "Tyler Malone <rtylermalone@gmail.com>",
+  "homepage": "https://github.com/rtmalone/traveler",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/rtmalone/traveler.git"
+  },
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
@@ -8,7 +14,11 @@
   },
   "dependencies": {
     "react": "16.8.3",
-    "react-native": "0.59.4"
+    "react-native": "0.59.4",
+    "react-native-gesture-handler": "^1.1.0",
+    "react-native-super-grid": "^3.0.3",
+    "react-native-vector-icons": "^6.4.2",
+    "react-navigation": "^3.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
