@@ -1,40 +1,36 @@
 import React from 'react'
-import { StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { createStackNavigator, createAppContainer } from 'react-navigation'
 import { Home, Board, Alphabet } from './Screens'
 import { Nav } from './components/Nav'
-
-const config = {
-  initialRouteName: 'Home',
-  cardStyle: {
-    flex: 1,
-    backgroundColor: 'cornsilk'
+const defaultNavOptions = {
+  title: 'Traveler',
+  // headerTitle: 'Traveler',
+  headerStyle: {
+    backgroundColor: '#f4511e',
+    textAlign: 'center'
   },
-  headerMode: 'float'
+  headerTitleStyle: { color: 'black' },
+  headerTitleAllowFontScaling: false
+  // headerLeft: <View />,
+  // headerRight: <View />
 }
 
 const AppNavigator = createStackNavigator(
   {
-    Home: {
-      screen: Home
-      // navigationOptions: {
-      //   header: null
-      // }
-    },
-    Alphabet: {
-      screen: Alphabet,
-      navigationOptions: ({ navigation }) => ({
-        header: <Nav navigation={navigation} />
-      })
-    },
-    Board: {
-      screen: Board,
-      navigationOptions: ({ navigation }) => ({
-        header: <Nav navigation={navigation} />
-      })
-    }
+    Home: Home,
+    Alphabet: Alphabet,
+    Board: Board
   },
-  config
+  {
+    initialRouteName: 'Home',
+    defaultNavigationOptions: defaultNavOptions,
+    headerMode: 'float',
+    cardStyle: {
+      flex: 1,
+      backgroundColor: 'cornsilk'
+    }
+  }
 )
 
 const AppContainer = createAppContainer(AppNavigator)
