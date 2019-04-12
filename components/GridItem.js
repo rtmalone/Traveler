@@ -12,7 +12,8 @@ export default class GridItem extends React.Component {
   }
 
   render() {
-    const { item } = this.props
+    const { item, posIndex } = this.props
+    console.log(item)
     const height = Dimensions.get('window').width / 4
     return (
       <TouchableHighlight
@@ -22,7 +23,7 @@ export default class GridItem extends React.Component {
         <View style={[styles.itemContainer, { backgroundColor: item.code, height: height }]}>
           <Icon name={item.icon} size={40} color="white" />
           <Text style={styles.itemName}>{item.name}</Text>
-          {/* <Text style={styles.itemCode}>{item.code}</Text> */}
+          <Text style={styles.itemCode}>{posIndex}</Text>
         </View>
       </TouchableHighlight>
     )
