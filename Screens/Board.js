@@ -6,22 +6,22 @@ import GridItem from '../components/GridItem'
 export default class Board extends React.Component {
   state = {
     items: [
-      { name: 'TURQUOISE', code: '#1abc9c' },
-      { name: 'EMERALD', code: '#2ecc71' },
-      { name: 'PETER RIVER', code: '#3498db' },
-      { name: 'AMETHYST', code: '#9b59b6' },
-      { name: 'WET ASPHALT', code: '#34495e' },
-      { name: 'GREEN SEA', code: '#16a085' },
-      { name: 'NEPHRITIS', code: '#27ae60' },
-      { name: 'BELIZE HOLE', code: '#2980b9' },
-      { name: 'WISTERIA', code: '#8e44ad' },
-      { name: 'MIDNIGHT BLUE', code: '#2c3e50' },
-      { name: 'SUN FLOWER', code: '#f1c40f' },
-      { name: 'CARROT', code: '#e67e22' },
-      { name: 'ALIZARIN', code: '#e74c3c' },
-      { name: 'CLOUDS', code: '#ecf0f1' },
-      { name: 'CONCRETE', code: '#95a5a6' },
-      { name: 'ORANGE', code: '#f39c12' }
+      { icon: 'motorcycle', name: 'motorcycle', code: '#1abc9c' },
+      { icon: 'flag', name: 'flag', code: '#2ecc71' },
+      { icon: 'bus', name: 'bus', code: '#3498db' },
+      { icon: 'train', name: 'train', code: '#9b59b6' },
+      { icon: 'truck', name: 'truck', code: '#34495e' },
+      { icon: 'plane', name: 'plane', code: '#16a085' },
+      { icon: 'bell', name: 'bell', code: '#27ae60' },
+      { icon: 'mobile', name: 'cell phone', code: '#2980b9' },
+      { icon: 'trash', name: 'trash can', code: '#8e44ad' },
+      { icon: 'bicycle', name: 'bicycle', code: '#2c3e50' },
+      { icon: 'car', name: 'car', code: '#f1c40f' },
+      { icon: 'building', name: 'tall building', code: '#e67e22' },
+      { icon: 'home', name: 'home', code: '#e74c3c' },
+      { icon: 'child', name: 'child', code: '#ecf0f1' },
+      { icon: 'hotel', name: 'hotel', code: '#95a5a6' },
+      { icon: 'ship', name: 'boat', code: '#f39c12' }
     ]
   }
 
@@ -32,7 +32,7 @@ export default class Board extends React.Component {
         items={this.state.items}
         itemContainerStyle={{ flex: 1, justifyContent: 'center' }}
         style={styles.gridView}
-        renderItem={(item) => <GridItem item={item} />}
+        renderItem={({ item }) => <GridItem item={item} />}
       />
     )
   }
@@ -41,7 +41,7 @@ export default class Board extends React.Component {
 const styles = StyleSheet.create({
   gridView: {
     // paddingTop: 50,
-    // flex: 1
+    // flex: 1,
     // justifyContent: 'center'
   },
   itemContainer: {

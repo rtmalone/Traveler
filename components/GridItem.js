@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, TouchableHighlight, Dimensions, View, Text } from 'react-native'
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 export default class GridItem extends React.Component {
   state = {
@@ -19,8 +20,9 @@ export default class GridItem extends React.Component {
         onPress={this._onPress}
         style={{ opacity: this.state.pressed ? 0.5 : 1 }}>
         <View style={[styles.itemContainer, { backgroundColor: item.code, height: height }]}>
+          <Icon name={item.icon} size={40} color="white" />
           <Text style={styles.itemName}>{item.name}</Text>
-          <Text style={styles.itemCode}>{item.code}</Text>
+          {/* <Text style={styles.itemCode}>{item.code}</Text> */}
         </View>
       </TouchableHighlight>
     )
@@ -29,13 +31,13 @@ export default class GridItem extends React.Component {
 
 const styles = StyleSheet.create({
   itemContainer: {
-    justifyContent: 'flex-end',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
     borderRadius: 5,
-    padding: 5
-    // height: 150,
+    padding: 10
   },
   itemName: {
-    fontSize: 16,
+    fontSize: 13,
     color: '#fff',
     fontWeight: '600'
   },
