@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import { FlatGrid } from 'react-native-super-grid'
 import { View, Text, StyleSheet, Dimensions, TouchableHighlight } from 'react-native'
 import GridItem from '../components/GridItem'
+import { GridItemType } from '../types'
 
-export default class Board extends React.Component {
+interface State {
+  items: GridItemType[]
+}
+
+export default class Board extends PureComponent<{}, State> {
   state = {
     items: [
       { id: 1, icon: 'motorcycle', name: 'motorcycle', code: '#1abc9c' },

@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import { StyleSheet, TouchableHighlight, Dimensions, View, Text } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
+import { GridItemType } from '../types'
 
-export default class GridItem extends React.Component {
+interface Props {
+  posIndex: number
+  item: GridItemType
+}
+
+export default class GridItem extends PureComponent<Props> {
   state = {
     pressed: false
   }

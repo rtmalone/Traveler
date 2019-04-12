@@ -1,17 +1,20 @@
 import React from 'react'
 import { TouchableOpacity, View, Text, StyleSheet } from 'react-native'
+import { NavigationScreenProps } from 'react-navigation'
 
-export default class Button extends React.Component {
-  render() {
-    const { navigation, navigateTo } = this.props
-    return (
-      <TouchableOpacity underlayColor="blue" onPress={() => navigation.navigate(navigateTo)}>
-        <View style={styles.button}>
-          <Text style={styles.buttonText}>{this.props.text}</Text>
-        </View>
-      </TouchableOpacity>
-    )
-  }
+type Props = {
+  text: string
+  navigateTo: string
+} & NavigationScreenProps
+
+export default function Button({ navigation, navigateTo, text }: Props) {
+  return (
+    <TouchableOpacity onPress={() => navigation.navigate(navigateTo)}>
+      <View style={styles.button}>
+        <Text style={styles.buttonText}>{text}</Text>
+      </View>
+    </TouchableOpacity>
+  )
 }
 
 const styles = StyleSheet.create({

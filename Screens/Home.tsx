@@ -1,8 +1,11 @@
-import React from 'react'
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import React, { PureComponent } from 'react'
+import { NavigationScreenProps } from 'react-navigation'
+import { StyleSheet, View } from 'react-native'
 import Button from '../components/Button'
 
-export default class Home extends React.Component {
+type Props = NavigationScreenProps
+
+export default class Home extends PureComponent<Props> {
   render() {
     return (
       <View style={styles.container}>
