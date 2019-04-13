@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { FlatGrid } from 'react-native-super-grid'
-import { View, Text, StyleSheet, Dimensions, TouchableHighlight } from 'react-native'
+import { StyleSheet, View, FlatList } from 'react-native'
 import GridItem from '../components/GridItem'
 import { GridItemType } from '../types'
 
@@ -22,7 +22,7 @@ export default class Board extends PureComponent<{}, State> {
       { id: 9, icon: 'trash', name: 'trash can', code: '#8e44ad' },
       { id: 10, icon: 'bicycle', name: 'bicycle', code: '#2c3e50' },
       { id: 11, icon: 'car', name: 'car', code: '#f1c40f' },
-      { id: 12, icon: 'building', name: 'tall building', code: '#e67e22' },
+      { id: 12, icon: 'building', name: 'building', code: '#e67e22' },
       { id: 13, icon: 'home', name: 'home', code: '#e74c3c' },
       { id: 14, icon: 'child', name: 'child', code: '#ecf0f1' },
       { id: 15, icon: 'hotel', name: 'hotel', code: '#95a5a6' },
@@ -32,37 +32,24 @@ export default class Board extends PureComponent<{}, State> {
 
   render() {
     return (
-      <FlatGrid
-        itemDimension={80}
-        items={this.state.items}
-        itemContainerStyle={{ flex: 1, justifyContent: 'center' }}
-        style={styles.gridView}
-        renderItem={({ item, index }) => <GridItem posIndex={index} item={item} />}
-      />
+      <View style={styles.container}>
+        <FlatList
+          contentContainerStyle={{ flex: 1, justifyContent: 'center' }}
+          style={{ width: '100%' }}
+          data={this.state.items}
+          numColumns={4}
+          keyExtractor={(item) => `grid-item-${item.icon}-${item.id}`}
+          renderItem={({ item, index }) => <GridItem posIndex={index} item={item} />}
+        />
+      </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  gridView: {
-    // paddingTop: 50,
-    // flex: 1,
-    // justifyContent: 'center'
-  },
-  itemContainer: {
-    justifyContent: 'flex-end',
-    borderRadius: 5,
-    padding: 5
-    // height: 150,
-  },
-  itemName: {
-    fontSize: 16,
-    color: '#fff',
-    fontWeight: '600'
-  },
-  itemCode: {
-    fontWeight: '600',
-    fontSize: 12,
-    color: '#fff'
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    paddingHorizontal: 10
   }
 })

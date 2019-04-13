@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react'
-import { StyleSheet, TouchableHighlight, Dimensions, View, Text } from 'react-native'
+import { StyleSheet, TouchableOpacity, Dimensions, View, Text } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { GridItemType } from '../types'
+import { colors, fonts } from '../theme'
 
 interface Props {
   posIndex: number
@@ -19,19 +20,20 @@ export default class GridItem extends PureComponent<Props> {
 
   render() {
     const { item, posIndex } = this.props
-    console.log(item)
+    const { pressed } = this.state
     const height = Dimensions.get('window').width / 4
     return (
-      <TouchableHighlight
-        underlayColor="white"
-        onPress={this._onPress}
-        style={{ opacity: this.state.pressed ? 0.5 : 1 }}>
-        <View style={[styles.itemContainer, { backgroundColor: item.code, height: height }]}>
+      <TouchableOpacity activeOpacity={0.5} onPress={this._onPress} style={{ flex: 1 }}>
+        <View
+          style={[
+            styles.itemContainer,
+            { backgroundColor: pressed ? colors.blueDark : colors.blue, height: height }
+          ]}>
           <Icon name={item.icon} size={40} color="white" />
           <Text style={styles.itemName}>{item.name}</Text>
           <Text style={styles.itemCode}>{posIndex}</Text>
         </View>
-      </TouchableHighlight>
+      </TouchableOpacity>
     )
   }
 }
@@ -41,16 +43,17 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     alignItems: 'center',
     borderRadius: 5,
-    padding: 10
+    padding: 6,
+    margin: 5
   },
   itemName: {
-    fontSize: 13,
-    color: '#fff',
-    fontWeight: '600'
+    fontSize: 14,
+    color: colors.textColor,
+    fontFamily: fonts.nunitoRegular
   },
   itemCode: {
-    fontWeight: '600',
+    fontFamily: fonts.nunitoBold,
     fontSize: 12,
-    color: '#fff'
+    color: colors.textColor
   }
 })

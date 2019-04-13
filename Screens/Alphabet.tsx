@@ -5,7 +5,6 @@ import { colors, fonts } from '../theme'
 
 export default class Alphabet extends React.Component {
   state = {
-    // alphabet:
     index: 0
   }
 

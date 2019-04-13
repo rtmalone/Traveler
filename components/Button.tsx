@@ -10,7 +10,7 @@ type Props = {
 
 export default function Button({ navigation, navigateTo, text }: Props) {
   return (
-    <TouchableOpacity onPress={() => navigation.navigate(navigateTo)}>
+    <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.navigate(navigateTo)}>
       <View style={styles.button}>
         <Text style={styles.buttonText}>{text}</Text>
       </View>
@@ -30,7 +30,6 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontFamily: fonts.nunitoBold,
-    // fontWeight: 'bold',
     fontSize: 24,
     color: 'white',
     textAlign: 'center'

@@ -7,7 +7,7 @@ const defaultNavOptions = {
   title: 'Traveler',
   headerStyle: {
     backgroundColor: colors.greenDark,
-    textAlign: 'center'
+    color: colors.textColor
   },
   headerTitleStyle: { fontFamily: fonts.nunitoRegular, color: colors.textColor },
   headerTitleAllowFontScaling: false
@@ -23,6 +23,7 @@ const AppNavigator = createStackNavigator(
     initialRouteName: 'Home',
     defaultNavigationOptions: defaultNavOptions,
     headerMode: 'float',
+    headerLayoutPreset: 'center',
     cardStyle: {
       flex: 1,
       backgroundColor: colors.greenLight
