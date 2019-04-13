@@ -1,13 +1,15 @@
 import React from 'react'
 import { createStackNavigator, createAppContainer } from 'react-navigation'
 import { Home, Board, Alphabet } from './Screens'
+import { colors, fonts } from './theme'
+
 const defaultNavOptions = {
   title: 'Traveler',
   headerStyle: {
-    backgroundColor: '#f4511e',
+    backgroundColor: colors.greenDark,
     textAlign: 'center'
   },
-  headerTitleStyle: { color: 'black' },
+  headerTitleStyle: { fontFamily: fonts.nunitoRegular, color: colors.textColor },
   headerTitleAllowFontScaling: false
 }
 
@@ -23,7 +25,7 @@ const AppNavigator = createStackNavigator(
     headerMode: 'float',
     cardStyle: {
       flex: 1,
-      backgroundColor: 'cornsilk'
+      backgroundColor: colors.greenLight
     }
   }
 )

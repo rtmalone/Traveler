@@ -43,5 +43,8 @@
     "singleQuote": true,
     "jsxBracketSameLine": true,
     "arrowParens": "always"
+  },
+  "rnpm":{
+    "assets": ["./assets/fonts"]
   }
 }

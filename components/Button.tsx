@@ -1,6 +1,7 @@
 import React from 'react'
 import { TouchableOpacity, View, Text, StyleSheet } from 'react-native'
 import { NavigationScreenProps } from 'react-navigation'
+import { colors, fonts } from '../theme'
 
 type Props = {
   text: string
@@ -19,7 +20,7 @@ export default function Button({ navigation, navigateTo, text }: Props) {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: 'cadetblue',
+    backgroundColor: colors.gold,
     width: 300,
     height: 65,
     paddingHorizontal: 20,
@@ -28,8 +29,9 @@ const styles = StyleSheet.create({
     borderRadius: 10
   },
   buttonText: {
-    fontWeight: 'bold',
-    fontSize: 20,
+    fontFamily: fonts.nunitoBold,
+    // fontWeight: 'bold',
+    fontSize: 24,
     color: 'white',
     textAlign: 'center'
   }

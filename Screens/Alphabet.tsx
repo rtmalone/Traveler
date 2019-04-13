@@ -1,6 +1,7 @@
 import React from 'react'
 import { TouchableWithoutFeedback, View, Text, StyleSheet } from 'react-native'
 import { alphabet } from '../data'
+import { colors, fonts } from '../theme'
 
 export default class Alphabet extends React.Component {
   state = {
@@ -35,6 +36,7 @@ const styles = StyleSheet.create({
   },
   letter: {
     fontSize: 300,
-    fontWeight: 'bold'
+    fontFamily: fonts.nunitoBold,
+    color: colors.textColor
   }
 })
