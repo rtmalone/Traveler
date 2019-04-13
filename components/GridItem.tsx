@@ -5,7 +5,6 @@ import { GridItemType } from '../types'
 import { colors, fonts } from '../theme'
 
 interface Props {
-  posIndex: number
   item: GridItemType
 }
 
@@ -19,7 +18,7 @@ export default class GridItem extends PureComponent<Props> {
   }
 
   render() {
-    const { item, posIndex } = this.props
+    const { item } = this.props
     const { pressed } = this.state
     const height = Dimensions.get('window').width / 4
     return (
@@ -31,7 +30,6 @@ export default class GridItem extends PureComponent<Props> {
           ]}>
           <Icon name={item.icon} size={40} color="white" />
           <Text style={styles.itemName}>{item.name}</Text>
-          <Text style={styles.itemCode}>{posIndex}</Text>
         </View>
       </TouchableOpacity>
     )
@@ -50,10 +48,5 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: colors.textColor,
     fontFamily: fonts.nunitoRegular
-  },
-  itemCode: {
-    fontFamily: fonts.nunitoBold,
-    fontSize: 12,
-    color: colors.textColor
   }
 })

@@ -1,14 +1,10 @@
 import React, { PureComponent } from 'react'
-import { FlatGrid } from 'react-native-super-grid'
 import { StyleSheet, View, FlatList } from 'react-native'
 import GridItem from '../components/GridItem'
+import data from '../data.json'
 import { GridItemType } from '../types'
 
-interface State {
-  items: GridItemType[]
-}
-
-export default class Board extends PureComponent<{}, State> {
+export default class Board extends PureComponent {
   state = {
     items: [
       { id: 1, icon: 'motorcycle', name: 'motorcycle', code: '#1abc9c' },
@@ -30,16 +26,20 @@ export default class Board extends PureComponent<{}, State> {
     ]
   }
 
+  renderRows({ item }: { item: GridItemType }) {
+    return <GridItem item={item} />
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <FlatList
           contentContainerStyle={{ flex: 1, justifyContent: 'center' }}
           style={{ width: '100%' }}
-          data={this.state.items}
+          data={data.icons}
           numColumns={4}
           keyExtractor={(item) => `grid-item-${item.icon}-${item.id}`}
-          renderItem={({ item, index }) => <GridItem posIndex={index} item={item} />}
+          renderItem={this.renderRows}
         />
       </View>
     )

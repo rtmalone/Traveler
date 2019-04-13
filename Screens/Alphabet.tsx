@@ -1,6 +1,6 @@
 import React from 'react'
-import { TouchableWithoutFeedback, View, Text, StyleSheet } from 'react-native'
-import { alphabet } from '../data'
+import { TouchableOpacity, View, Text, StyleSheet } from 'react-native'
+import data from '../data.json'
 import { colors, fonts } from '../theme'
 
 export default class Alphabet extends React.Component {
@@ -17,11 +17,9 @@ export default class Alphabet extends React.Component {
     const { index } = this.state
     return (
       <View style={styles.container}>
-        <TouchableWithoutFeedback onPress={this.changeLetter}>
-          <View>
-            <Text style={styles.letter}>{alphabet[index]}</Text>
-          </View>
-        </TouchableWithoutFeedback>
+        <TouchableOpacity activeOpacity={0.7} style={styles.target} onPress={this.changeLetter}>
+          <Text style={styles.letter}>{data.alphabet[index]}</Text>
+        </TouchableOpacity>
       </View>
     )
   }
@@ -32,6 +30,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  target: {
+    paddingHorizontal: 30,
+    borderRadius: 20,
+    backgroundColor: colors.greenDark
   },
   letter: {
     fontSize: 300,
